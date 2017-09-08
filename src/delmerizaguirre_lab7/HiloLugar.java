@@ -48,7 +48,10 @@ public class HiloLugar extends Thread {
     @Override
     public void run() {
         while (true) {
-            ActualizarTabla();
+            try {
+                ActualizarTabla();
+            } catch (Exception e) {
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

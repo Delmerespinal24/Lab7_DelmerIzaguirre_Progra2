@@ -42,7 +42,7 @@ public class Principal extends javax.swing.JFrame {
         tf_estatura1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        cb_lugares = new javax.swing.JComboBox<>();
+        tf_lugar = new javax.swing.JTextField();
         jd_lugar = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -90,9 +90,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setText("Seleccione un lugar");
-
-        cb_lugares.setModel(new DefaultComboBoxModel());
+        jLabel15.setText("Ingrese lugar");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -100,6 +98,9 @@ public class Principal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(jLabel13))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -116,11 +117,8 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(tf_id1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                             .addComponent(tf_edad1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
                             .addComponent(tf_estatura1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                            .addComponent(cb_lugares, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(jLabel13)))
-                .addContainerGap(117, Short.MAX_VALUE))
+                            .addComponent(tf_lugar))))
+                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -151,11 +149,11 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(tf_estatura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(cb_lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                    .addComponent(tf_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -168,9 +166,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jd_PersonaLayout.setVerticalGroup(
             jd_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_PersonaLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -381,45 +377,42 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
-        DefaultListModel modeloLista = (DefaultListModel) jl_lugares.getModel();
-        if (modeloLista.getSize() > 0) {
-            DefaultComboBoxModel modelobox = (DefaultComboBoxModel) cb_lugares.getModel();
-            modelobox.removeAllElements();
-            for (int i = 0; i < modeloLista.size(); i++) {
-                modelobox.addElement(modeloLista.get(i));
-            }
+        jd_Persona.setModal(true);
+        jd_Persona.pack();
+        jd_Persona.setLocationRelativeTo(this);
+        jd_Persona.setVisible(true);
 
-            jd_Persona.setModal(true);
-            jd_Persona.pack();
-            jd_Persona.setLocationRelativeTo(this);
-            jd_Persona.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(this, "No hay ningun lugar creado");
-        }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             if (!(tf_nombre1.getText().equals("") && tf_profesion1.getText().equals("") && tf_id1.getText().equals("") && tf_edad1.getText().equals("")
-                    && tf_estatura1.getText().equals(""))) {
-                
+                    && tf_estatura1.getText().equals("") && tf_lugar.getText().equals(""))) {
+
                 AdministrarBinario AB = new AdministrarBinario("./Personas.JP4");
                 AB.CargarArchivo();
-                
+
                 String Nombre = tf_nombre1.getText();
                 String profesion = tf_profesion1.getText();
                 int ID = Integer.parseInt(tf_id1.getText());
                 int Edad = Integer.parseInt(tf_edad1.getText());
                 float Estatura = Float.parseFloat(tf_estatura1.getText());
-                Lugar lugar = (Lugar) cb_lugares.getSelectedItem();
-                
+                Lugar lugar = new Lugar();
+                lugar.setNombre(tf_lugar.getText());
+
                 Persona person = new Persona(Nombre, profesion, lugar, ID, Edad, Estatura);
-                
+
                 AB.addPersona(person);
                 AB.escribirArchivo();
                 jd_Persona.dispose();
-                
-            }else{
+                tf_nombre1.setText("");
+                tf_profesion1.setText("");
+                tf_id1.setText("");
+                tf_edad1.setText("");
+                tf_estatura1.setText("");
+                tf_lugar.setText("");
+
+            } else {
                 JOptionPane.showMessageDialog(jd_Persona, "Debe llenar los espacios");
             }
 
@@ -469,7 +462,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_zona;
     private javax.swing.JRadioButton bt_rural;
     private javax.swing.JRadioButton bt_urban;
-    private javax.swing.JComboBox<String> cb_lugares;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -502,6 +494,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_extension;
     private javax.swing.JTextField tf_habitantes;
     private javax.swing.JTextField tf_id1;
+    private javax.swing.JTextField tf_lugar;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_profesion1;

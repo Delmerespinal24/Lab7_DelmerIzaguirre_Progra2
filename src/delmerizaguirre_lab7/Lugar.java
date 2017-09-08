@@ -62,7 +62,7 @@ public class Lugar implements Serializable {
     }
     
     public boolean CompararLugar(Lugar l){
-        return this.nombre.equals(l.getNombre()) && this.tipoZona.equals(l.getTipoZona()) && (this.extension == l.getExtension());
+        return this.nombre.equals(l.getNombre());
         
     }
 
