@@ -5,7 +5,7 @@
  */
 package delmerizaguirre_lab7;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 /**
  *
@@ -13,11 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -30,6 +28,21 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_Persona = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tf_nombre1 = new javax.swing.JTextField();
+        tf_profesion1 = new javax.swing.JTextField();
+        tf_id1 = new javax.swing.JTextField();
+        tf_edad1 = new javax.swing.JTextField();
+        tf_estatura1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        cb_lugares = new javax.swing.JComboBox<>();
         jd_lugar = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -46,20 +59,118 @@ public class Principal extends javax.swing.JFrame {
         bt_urban = new javax.swing.JRadioButton();
         bt_rural = new javax.swing.JRadioButton();
         bg_zona = new javax.swing.ButtonGroup();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_lugares = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102), 2));
+
+        jLabel8.setText("Profesion");
+
+        jLabel9.setText("Nombre");
+
+        jLabel10.setText("ID");
+
+        jLabel11.setText("Edad");
+
+        jLabel12.setText("Estatura");
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel13.setText("Nueva Persona");
+
+        jButton2.setText("Guardar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Seleccione un lugar");
+
+        cb_lugares.setModel(new DefaultComboBoxModel());
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel15))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tf_profesion1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(tf_nombre1)
+                            .addComponent(tf_id1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(tf_edad1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(tf_estatura1, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
+                            .addComponent(cb_lugares, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(jLabel13)))
+                .addContainerGap(117, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel13)
+                .addGap(83, 83, 83)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(tf_profesion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(tf_id1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(tf_estatura1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(cb_lugares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+        );
+
         javax.swing.GroupLayout jd_PersonaLayout = new javax.swing.GroupLayout(jd_Persona.getContentPane());
         jd_Persona.getContentPane().setLayout(jd_PersonaLayout);
         jd_PersonaLayout.setHorizontalGroup(
             jd_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jd_PersonaLayout.setVerticalGroup(
             jd_PersonaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_PersonaLayout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -175,6 +286,11 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel14.setText("Lugares Guardados");
+
+        jl_lugares.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_lugares);
+
         jMenu1.setText("Inicio");
 
         jMenuItem1.setText("Crear un lugar");
@@ -186,6 +302,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Crear una persona");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -196,50 +317,118 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addComponent(jLabel14)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       jd_lugar.setModal(true);
+        jd_lugar.setModal(true);
         jd_lugar.pack();
         jd_lugar.setLocationRelativeTo(this);
         jd_lugar.setVisible(true);
-       
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            if(!(tf_nombre.getText().equals("") && tf_clima.getText().equals("") && tf_habitantes.getText().equals("") && tf_extension.getText().equals(""))){
-                    String nombre = tf_nombre.getText();
-                    String clima = tf_clima.getText();
-                    int habitantes = Integer.parseInt(tf_habitantes.getText());
-                    double extension = Double.parseDouble(tf_extension.getText());
-                    String zona;
-                    if(bt_urban.isSelected()){
-                        zona = "Urbana";
-                    }else{
-                        zona = "Rural";
-                    }
-                    
-                    Lugar l = new Lugar(nombre, clima, extension, habitantes, zona);
-                    
-                    
-                
-            }else{
-                JOptionPane.showMessageDialog(this, "Debe llenar los espacios");
+            if (!(tf_nombre.getText().equals("") && tf_clima.getText().equals("") && tf_habitantes.getText().equals("") && tf_extension.getText().equals(""))) {
+                String nombre = tf_nombre.getText();
+                String clima = tf_clima.getText();
+                int habitantes = Integer.parseInt(tf_habitantes.getText());
+                double extension = Double.parseDouble(tf_extension.getText());
+                String zona;
+                if (bt_urban.isSelected()) {
+                    zona = "Urbana";
+                } else {
+                    zona = "Rural";
+                }
+
+                Lugar l = new Lugar(nombre, clima, extension, habitantes, zona);
+                tf_nombre.setText("");
+                tf_clima.setText("");
+                tf_extension.setText("");
+                tf_habitantes.setText("");
+                jd_lugar.dispose();
+                DefaultListModel modelo = (DefaultListModel) jl_lugares.getModel();
+                modelo.addElement(l);
+
+                new VentanaLugar(l).setVisible(true);
+
+            } else {
+                JOptionPane.showMessageDialog(jd_lugar, "Debe llenar los espacios");
             }
-            
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Ha ocurrido un problema");
+            JOptionPane.showMessageDialog(jd_lugar, "Ha ocurrido un problema");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+
+        DefaultListModel modeloLista = (DefaultListModel) jl_lugares.getModel();
+        if (modeloLista.getSize() > 0) {
+            DefaultComboBoxModel modelobox = (DefaultComboBoxModel) cb_lugares.getModel();
+            modelobox.removeAllElements();
+            for (int i = 0; i < modeloLista.size(); i++) {
+                modelobox.addElement(modeloLista.get(i));
+            }
+
+            jd_Persona.setModal(true);
+            jd_Persona.pack();
+            jd_Persona.setLocationRelativeTo(this);
+            jd_Persona.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay ningun lugar creado");
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            if (!(tf_nombre1.getText().equals("") && tf_profesion1.getText().equals("") && tf_id1.getText().equals("") && tf_edad1.getText().equals("")
+                    && tf_estatura1.getText().equals(""))) {
+                
+                AdministrarBinario AB = new AdministrarBinario("./Personas.JP4");
+                AB.CargarArchivo();
+                
+                String Nombre = tf_nombre1.getText();
+                String profesion = tf_profesion1.getText();
+                int ID = Integer.parseInt(tf_id1.getText());
+                int Edad = Integer.parseInt(tf_edad1.getText());
+                float Estatura = Float.parseFloat(tf_estatura1.getText());
+                Lugar lugar = (Lugar) cb_lugares.getSelectedItem();
+                
+                Persona person = new Persona(Nombre, profesion, lugar, ID, Edad, Estatura);
+                
+                AB.addPersona(person);
+                AB.escribirArchivo();
+                jd_Persona.dispose();
+                
+            }else{
+                JOptionPane.showMessageDialog(jd_Persona, "Debe llenar los espacios");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_Persona, "Ha ocurrido un problema");
+        }
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,23 +469,41 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup bg_zona;
     private javax.swing.JRadioButton bt_rural;
     private javax.swing.JRadioButton bt_urban;
+    private javax.swing.JComboBox<String> cb_lugares;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_Persona;
     private javax.swing.JDialog jd_lugar;
+    private javax.swing.JList<String> jl_lugares;
     private javax.swing.JTextField tf_clima;
+    private javax.swing.JTextField tf_edad1;
+    private javax.swing.JTextField tf_estatura1;
     private javax.swing.JTextField tf_extension;
     private javax.swing.JTextField tf_habitantes;
+    private javax.swing.JTextField tf_id1;
     private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nombre1;
+    private javax.swing.JTextField tf_profesion1;
     // End of variables declaration//GEN-END:variables
 }

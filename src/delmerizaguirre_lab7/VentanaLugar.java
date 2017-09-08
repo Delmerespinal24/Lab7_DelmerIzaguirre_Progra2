@@ -15,9 +15,20 @@ public class VentanaLugar extends javax.swing.JFrame {
      * Creates new form VentanaLugar
      * @param lugar
      */
+    
     public VentanaLugar(Lugar lugar) {
         initComponents();
+        lb_nombre.setText(lugar.getNombre());
+        lb_clima.setText("Clima: " + lugar.getClima());
+        lb_extension.setText("Extension: " + lugar.getExtension());
+        lb_zona.setText("Zona: " + lugar.getExtension());
+        
+        hl = new HiloLugar(TablaPersonas, lugar);
+        hl.start();
+        
     }
+    
+    private HiloLugar hl;
     
     
 
@@ -30,30 +41,54 @@ public class VentanaLugar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lb_nombre = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaPersonas = new javax.swing.JTable();
+        lb_clima = new javax.swing.JLabel();
+        lb_extension = new javax.swing.JLabel();
+        lb_habitantes = new javax.swing.JLabel();
+        lb_zona = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Nombre del lugar");
+        lb_nombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lb_nombre.setText("Nombre del lugar");
 
         jLabel2.setText("Personas que pertenecen a este lugar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "ID", "Profesion", "Edad", "Estatura"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TablaPersonas);
+
+        lb_clima.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lb_clima.setText("Clima:");
+
+        lb_extension.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lb_extension.setText("Extension:");
+
+        lb_habitantes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lb_habitantes.setText("Habitantes: ");
+
+        lb_zona.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lb_zona.setText("Tipo zona:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,29 +97,44 @@ public class VentanaLugar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(310, 310, 310)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel2)))
-                        .addGap(0, 330, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_clima)
+                                    .addComponent(lb_extension))
+                                .addGap(209, 209, 209)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lb_zona)
+                                    .addComponent(lb_nombre)
+                                    .addComponent(lb_habitantes))))
+                        .addGap(0, 314, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addGap(93, 93, 93)
-                .addComponent(jLabel2)
+                .addGap(31, 31, 31)
+                .addComponent(lb_nombre)
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_clima)
+                    .addComponent(lb_habitantes))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_zona)
+                    .addComponent(lb_extension))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -93,9 +143,13 @@ public class VentanaLugar extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable TablaPersonas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lb_clima;
+    private javax.swing.JLabel lb_extension;
+    private javax.swing.JLabel lb_habitantes;
+    private javax.swing.JLabel lb_nombre;
+    private javax.swing.JLabel lb_zona;
     // End of variables declaration//GEN-END:variables
 }

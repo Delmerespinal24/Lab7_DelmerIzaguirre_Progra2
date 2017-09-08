@@ -1,7 +1,9 @@
 
 package delmerizaguirre_lab7;
 
-public class Lugar {
+import java.io.Serializable;
+
+public class Lugar implements Serializable {
        private String nombre;
        private String clima;
        private double extension;
@@ -57,6 +59,11 @@ public class Lugar {
 
     public void setTipoZona(String tipoZona) {
         this.tipoZona = tipoZona;
+    }
+    
+    public boolean CompararLugar(Lugar l){
+        return this.nombre.equals(l.getNombre()) && this.tipoZona.equals(l.getTipoZona()) && (this.extension == l.getExtension());
+        
     }
 
     @Override
